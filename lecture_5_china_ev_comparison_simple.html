@@ -7569,8 +7569,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">akshare</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ak</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -7593,7 +7592,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=10eec752">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=63aeaad1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7601,19 +7600,38 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_or_fetch</span><span class="p">(</span><span class="n">symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fetch_fn</span><span class="p">):</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="n">CACHE_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">.csv.gz"</span>
-    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">fetch_fn</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="n">symbol</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">annual_financials</span><span class="p">(</span><span class="n">symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-    <span class="n">profit</span> <span class="o">=</span> <span class="n">load_or_fetch</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="s1">'profit_sheet'</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">stock_profit_sheet_by_report_em</span><span class="p">)</span>
-    <span class="n">balance</span> <span class="o">=</span> <span class="n">load_or_fetch</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="s1">'balance_sheet'</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">stock_balance_sheet_by_report_em</span><span class="p">)</span>
-    <span class="n">cash</span> <span class="o">=</span> <span class="n">load_or_fetch</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="s1">'cash_flow_sheet'</span><span class="p">,</span> <span class="n">ak</span><span class="o">.</span><span class="n">stock_cash_flow_sheet_by_report_em</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Optional: Download / refresh BYD and SAIC statements (run only if needed)</span>
+<span class="c1"># This cell is intentionally commented out to prevent accidental API calls during class.</span>
+<span class="c1">#</span>
+<span class="c1"># import akshare as ak</span>
+<span class="c1">#</span>
+<span class="c1"># for symbol in [BYD, SAIC]:</span>
+<span class="c1">#     ak.stock_profit_sheet_by_report_em(symbol=symbol).to_csv(</span>
+<span class="c1">#         CACHE_DIR / f"{symbol}_profit_sheet.csv.gz", index=False, compression='gzip'</span>
+<span class="c1">#     )</span>
+<span class="c1">#     ak.stock_balance_sheet_by_report_em(symbol=symbol).to_csv(</span>
+<span class="c1">#         CACHE_DIR / f"{symbol}_balance_sheet.csv.gz", index=False, compression='gzip'</span>
+<span class="c1">#     )</span>
+<span class="c1">#     ak.stock_cash_flow_sheet_by_report_em(symbol=symbol).to_csv(</span>
+<span class="c1">#         CACHE_DIR / f"{symbol}_cash_flow_sheet.csv.gz", index=False, compression='gzip'</span>
+<span class="c1">#     )</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=10eec752">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">annual_financials</span><span class="p">(</span><span class="n">symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">profit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CACHE_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">_profit_sheet.csv.gz"</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span>
+    <span class="n">balance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CACHE_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">_balance_sheet.csv.gz"</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span>
+    <span class="n">cash</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CACHE_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">_cash_flow_sheet.csv.gz"</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">(</span><span class="n">profit</span><span class="p">,</span> <span class="n">balance</span><span class="p">,</span> <span class="n">cash</span><span class="p">):</span>
         <span class="n">df</span><span class="p">[</span><span class="s1">'REPORT_DATE'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'REPORT_DATE'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
@@ -7656,7 +7674,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7822,7 +7840,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_metric</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e9</span><span class="p">):</span>
