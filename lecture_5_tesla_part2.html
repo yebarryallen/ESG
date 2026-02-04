@@ -7535,7 +7535,7 @@ In this part, we cover Liquidity, Efficiency, Returns, and EVA.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
 
-<span class="n">USE_LOCAL_DATA</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">USE_LOCAL_DATA</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">'data'</span>
 
 
@@ -7638,14 +7638,8 @@ In this part, we cover Liquidity, Efficiency, Returns, and EVA.</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Falling back to local Excel backup in ./data ...
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Filtering data to include only records on or after 2022-01-01...
+<pre>Loaded local Excel backup.
+Filtering data to include only records on or after 2022-01-01...
 Part 2 Environment Ready.
 </pre>
 </div>
@@ -8342,7 +8336,7 @@ $$ \text{DPO} = \frac{365}{\text{Payables Turnover}} $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\Jinquan Ye\AppData\Local\Temp\ipykernel_24464\2215964615.py:16: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+<pre>C:\Users\Jinquan Ye\AppData\Local\Temp\ipykernel_15596\2215964615.py:16: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   display(return_df.applymap(lambda x: "{:.2%}".format(x) if pd.notnull(x) else x))
 </pre>
 </div>
@@ -9028,7 +9022,7 @@ Plotting Monthly Ratio Data Points: 19
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\Jinquan Ye\AppData\Local\Temp\ipykernel_24464\2195418325.py:116: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+<pre>C:\Users\Jinquan Ye\AppData\Local\Temp\ipykernel_15596\2195418325.py:116: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
   df_monthly = df_q.resample('M').interpolate(method='linear')
 </pre>
 </div>

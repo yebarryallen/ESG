@@ -8032,7 +8032,7 @@ Loading local Excel backup for preview...
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
 
-<span class="n">USE_LOCAL_DATA</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Set to True to use local Excel files</span>
+<span class="n">USE_LOCAL_DATA</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set to True to use local Excel files</span>
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">'data'</span>
 
 
@@ -8142,7 +8142,8 @@ Loading local Excel backup for preview...
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Falling back to local Excel backup in ./data ...
+<pre>Loading data from local backup...
+Data loaded successfully from Excel.
 Filtering data to include only records on or after 2022-01-01...
 --- Transposed Income Statement (Last 3 Years) ---
 </pre>
