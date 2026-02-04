@@ -7594,26 +7594,36 @@ a.anchor-link {
 <span class="c1"># This cell is intentionally commented out to prevent accidental API calls during class.</span>
 <span class="c1">#</span>
 <span class="c1"># from pathlib import Path</span>
+<span class="c1"># import pandas as pd</span>
 <span class="c1"># import yfinance as yf</span>
 <span class="c1">#</span>
 <span class="c1"># DATA_DIR = Path("data")</span>
 <span class="c1"># DATA_DIR.mkdir(parents=True, exist_ok=True)</span>
 <span class="c1">#</span>
+<span class="c1"># def to_excel_no_tz(df: pd.DataFrame, path: Path):</span>
+<span class="c1">#     df = df.copy()</span>
+<span class="c1">#     if isinstance(df.index, pd.DatetimeIndex):</span>
+<span class="c1">#         df.index = df.index.tz_localize(None)</span>
+<span class="c1">#     if isinstance(df.columns, pd.DatetimeIndex):</span>
+<span class="c1">#         df.columns = df.columns.tz_localize(None)</span>
+<span class="c1">#     df.to_excel(path)</span>
+<span class="c1">#</span>
 <span class="c1"># t = yf.Ticker("TSLA")</span>
 <span class="c1">#</span>
 <span class="c1"># # Annual statements</span>
-<span class="c1"># (t.financials.transpose()).to_excel(DATA_DIR / "tesla_income_stmt.xlsx")</span>
-<span class="c1"># (t.balance_sheet.transpose()).to_excel(DATA_DIR / "tesla_balance_sheet.xlsx")</span>
-<span class="c1"># (t.cashflow.transpose()).to_excel(DATA_DIR / "tesla_cash_flow.xlsx")</span>
+<span class="c1"># to_excel_no_tz(t.financials.transpose(), DATA_DIR / "tesla_income_stmt.xlsx")</span>
+<span class="c1"># to_excel_no_tz(t.balance_sheet.transpose(), DATA_DIR / "tesla_balance_sheet.xlsx")</span>
+<span class="c1"># to_excel_no_tz(t.cashflow.transpose(), DATA_DIR / "tesla_cash_flow.xlsx")</span>
 <span class="c1">#</span>
 <span class="c1"># # Daily price (used for market capitalization)</span>
-<span class="c1"># daily_price = t.history(start="2024-01-01", end="2025-12-31", interval="1d")</span>
-<span class="c1"># daily_price.index = daily_price.index.tz_localize(None)</span>
-<span class="c1"># daily_price.to_excel(DATA_DIR / "tesla_daily_price.xlsx")</span>
+<span class="c1"># to_excel_no_tz(</span>
+<span class="c1">#     t.history(start="2024-01-01", end="2025-12-31", interval="1d"),</span>
+<span class="c1">#     DATA_DIR / "tesla_daily_price.xlsx",</span>
+<span class="c1"># )</span>
 <span class="c1">#</span>
 <span class="c1"># # Quarterly statements (used for shares outstanding proxy)</span>
-<span class="c1"># (t.quarterly_financials.transpose()).to_excel(DATA_DIR / "tesla_quarterly_financials.xlsx")</span>
-<span class="c1"># (t.quarterly_balance_sheet.transpose()).to_excel(DATA_DIR / "tesla_quarterly_balance.xlsx")</span>
+<span class="c1"># to_excel_no_tz(t.quarterly_financials.transpose(), DATA_DIR / "tesla_quarterly_financials.xlsx")</span>
+<span class="c1"># to_excel_no_tz(t.quarterly_balance_sheet.transpose(), DATA_DIR / "tesla_quarterly_balance.xlsx")</span>
 </pre></div>
 </div>
 </div>
