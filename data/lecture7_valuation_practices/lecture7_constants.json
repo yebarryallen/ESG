@@ -1,0 +1,7 @@
+{
+  "credit_revenue_usd": 1993000000,
+  "credit_revenue_for_forecast_billion": 1.933,
+  "sensitivity_center_discount_rate": 0.0835,
+  "sensitivity_center_terminal_growth": 0.0422,
+  "terminal_growth_page13_assumption": 0.04075
+}
