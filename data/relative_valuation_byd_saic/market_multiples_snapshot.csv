@@ -1,0 +1,11 @@
+﻿ticker,snapshot_date,short_name,currency,market_cap,trailing_pe,price_to_sales_ttm,shares_outstanding,current_price,total_revenue,source
+002594.SZ,2026-02-25,BYD COMPANY LTD,CNY,858499448832,66.323746,1.0206662,5433797565,92.19,841116680192.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+600104.SS,2026-02-25,SAIC MOTOR CORPORATION LIMITED,CNY,167371243520,58.24,0.25127116,11495277504,14.56,666098073600.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+GELYF,2026-02-25,Geely Automobile Holdings Ltd.,USD,23385610240,10.285715,0.08060188,10826671297,2.16,290137276416.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+GM,2026-02-25,General Motors Company,USD,75832295424,24.411413,0.4098622,903967853,81.29,185019006976.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+HYMLF,2026-02-25,,USD,43904856064,6.3183303,,200576992,89.0,,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+LI,2026-02-25,Li Auto Inc.,USD,18918017024,16.972727,0.14801584,835378221,18.67,127810764800.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+NIO,2026-02-25,NIO Inc.,USD,13401893888,,0.18475002,2370675188,5.3,72540692480.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+TM,2026-02-25,Toyota Motor Corporation,USD,311041785856,12.934417,0.0061652544,1303393341,238.64,50450762039296.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+TSLA,2026-02-25,"Tesla, Inc.",USD,1536170524672,368.81082,16.199717,3752431984,409.38,94827003904.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)
+VWAGY,2026-02-25,Volkswagen AG,USD,60255690752,7.607595,0.18480733,2950898180,12.02,326045990912.0,Yahoo Finance (yfinance snapshot for classroom reproducibility)

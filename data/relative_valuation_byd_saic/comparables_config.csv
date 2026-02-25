@@ -1,0 +1,9 @@
+﻿target,peer_name,ticker,selected_multiple,rationale
+BYD,Tesla,TSLA,PS,"EV-focused, vertically integrated, global scale"
+BYD,Geely Auto,GELYF,PS,Rapid electrification transition within China
+BYD,Li Auto,LI,PS,"Similar growth trajectory, expansion phase"
+BYD,NIO,NIO,PS,"EV exposure, but different scale and profitability"
+SAIC,Volkswagen Group,VWAGY,PE,Diversified global OEM with ICE + EV
+SAIC,General Motors,GM,PE,Mature OEM with JV and transition exposure
+SAIC,Toyota Motor,TM,PE,Large-scale global incumbent
+SAIC,Hyundai Motor,HYMLF,PE,Asian multinational OEM
